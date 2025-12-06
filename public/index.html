@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماشای گروهی</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script>
+</head>
+<body>
+
+    <div id="login-container" class="container active">
+        <h1>سینمای آنلاین دوستانه</h1>
+        <input type="text" id="username-input" placeholder="نام خود را بنویسید...">
+        <button onclick="enterLobby()">شروع</button>
+    </div>
+
+    <div id="lobby-container" class="container">
+        <h2>لابی</h2>
+        <div class="lobby-actions">
+            <button onclick="createRoom()" class="create-btn">ساخت اتاق جدید</button>
+            <div class="join-box">
+                <input type="text" id="room-id-input" placeholder="شناسه اتاق (Room ID)">
+                <button onclick="joinRoom()">پیوستن</button>
+            </div>
+        </div>
+        <p id="status-msg"></p>
+    </div>
+
+    <div id="room-container" class="room-container">
+        <div class="room-header">
+            <div class="room-info">
+                <span>Room ID: <b id="display-room-id" style="user-select: all;">...</b></span>
+            </div>
+            <div class="room-controls">
+                <button id="voice-btn" onclick="toggleVoice()" class="voice-off"><i class="fas fa-microphone-slash"></i> غیرفعال</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="video-section">
+                <div class="input-url-box">
+                    <input type="text" id="video-url" placeholder="لینک فایل MP4 (لینک مستقیم)...">
+                    <button onclick="changeVideo()">پخش همگانی</button>
+                </div>
+ <div class="player-wrapper">
+    <video id="main-video" controls playsinline></video>
+    <iframe id="youtube-frame" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:none;"></iframe>
+</div>
+
+            <div class="chat-section">
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="پیام...">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

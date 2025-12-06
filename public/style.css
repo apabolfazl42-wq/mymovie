@@ -1,0 +1,116 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Tahoma', sans-serif;
+    margin: 0;
+    overflow: hidden; /* جلوگیری از اسکرول اضافه */
+}
+
+.container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container.active { display: flex; }
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background: #1e1e1e;
+    color: white;
+    margin: 10px 0;
+    width: 250px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #e50914; /* قرمز نتفلیکسی */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover { background: #b20710; }
+
+/* استایل اتاق */
+.room-container {
+    display: none;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.room-header {
+    background: #1f1f1f;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.video-section {
+    flex: 3;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.player-wrapper {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-section {
+    flex: 1;
+    background: #181818;
+    border-left: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 8px;
+    padding: 8px;
+    background: #2a2a2a;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    background: #1f1f1f;
+}
+
+.voice-off { background: #555; }
+.voice-on { background: #28a745; }
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+    .main-content { flex-direction: column; }
+    .chat-section { height: 30%; max-width: 100%; }
+}
