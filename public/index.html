@@ -44,12 +44,17 @@
         <div class="main-content">
             <div class="video-section">
                 <div class="input-url-box">
-                    <input type="text" id="video-url" placeholder="لینک MP4 مستقیم را اینجا بگذارید...">
+                    <input type="text" id="video-url" placeholder="لینک مستقیم MP4...">
                     <button onclick="changeVideo()">پخش برای همه</button>
                 </div>
 
                 <div class="player-wrapper">
-                    <video id="main-video" controls playsinline></video>
+                    <div id="start-overlay" onclick="enableMobileVideo()">
+                        <i class="fas fa-play-circle"></i>
+                        <p>برای فعال‌سازی پخش ضربه بزنید</p>
+                    </div>
+
+                    <video id="main-video" controls playsinline preload="auto"></video>
                     <iframe id="youtube-frame" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:none;"></iframe>
                     
                     <div id="floating-chat-area"></div>
